@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simple Giosg-Style Webpage</title>
+  <style>
+    body {
+      font-family: "Helvetica Neue", sans-serif;
+      background-color: #f7f8fa;
+      color: #2a2a2a;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    h1 {
+      color: #00395a;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    input[type="text"],
+    input[type="email"] {
+      width: 100%;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #00b6ed;
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #009dc9;
+    }
+
+    .output {
+      margin: 1.5rem 0;
+      padding: 1rem;
+      background-color: #eef6fa;
+      border-left: 4px solid #00b6ed;
+      font-weight: bold;
+    }
+
+    .lorem {
+      margin-top: 2rem;
+      font-size: 0.95rem;
+    }
+  </style>
+  
+  <!-- giosg tag -->
+  <script>
+    (function(w, t, f) {
+      var s='script',o='_giosg',h='https://service.giosg.com',e,n;e=t.createElement(s);e.async=1;e.src=h+'/live2/'+f;
+      w[o]=w[o]||function(){(w[o]._e=w[o]._e||[]).push(arguments)};w[o]._c=f;w[o]._h=h;n=t.getElementsByTagName(s)[0];n.parentNode.insertBefore(e,n);
+    })(window,document,"614fe498-fa95-11ef-9d72-0242ac120017");
+  </script>
+  <!-- giosg tag -->  
+</head>
+<body>
+
+  <div class="container">
+    <h1>Lorem Ipsum Header</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur at eros viverra, placerat erat eu, finibus sapien.</p>
+
+    <form id="exampleForm">
+      <input type="text" id="name" placeholder="Your name" required />
+      <input type="email" id="email" placeholder="Your email" required />
+      <button type="submit" id="calendar-button">Submit</button>
+    </form>
+
+    <div id="output" class="output"></div>
+    <div id="calendar_interaction" class="output"></div>
+    
+
+    <div class="lorem">
+      <p>
+        More lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed feugiat justo nec magna laoreet, non pretium arcu facilisis. Suspendisse potenti. Donec nec purus a lorem congue ullamcorper.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById('exampleForm');
+    const output = document.getElementById('output');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      output.textContent = `Name: ${name}, Email: ${email}`;
+      window.giosgCalendarData = {
+        name: name,
+        email: email,
+      };
+    });
+  </script>
+
+</body>
+</html>
